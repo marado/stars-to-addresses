@@ -8,6 +8,7 @@ Dependencies
 * Python
 * lxml
 * geopy
+* simplekml
 
 Usage
 -----
