@@ -6,6 +6,7 @@ Get addresses from Google starred locations
 Dependencies
 ------------
 * Python
+* lxml
 * geopy
 
 Usage
