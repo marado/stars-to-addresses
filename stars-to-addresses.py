@@ -9,8 +9,19 @@ After downloading the html file, run this script on it to get the addresses
 This script is based on https://gist.github.com/endolith/3896948
 """
 
-from lxml.html import document_fromstring
-from geopy.geocoders import Nominatim
+import sys
+
+try:
+	from lxml.html import document_fromstring
+except ImportError:
+	print "You need to install lxml"
+	sys.exit()
+
+try:
+	from geopy.geocoders import Nominatim
+except ImportError:
+	print "You need to install geopy"
+	sys.exit()
 
 from urllib2 import urlopen
 import re
@@ -55,7 +66,17 @@ for element, attribute, url, pos in doc.body.iterlinks():
                 latitude = lat_re.findall(content)[0]
                 longitude = lon_re.findall(content)[0]
             except IndexError:
-                print '[Coordinates not found]'
+                try:
+                    lines = content.split('\n')  # --> ['Line 1', 'Line 2', 'Line 3']
+                    for line in lines:
+                        if re.search('cacheResponse\(', line):
+                            splitline = line.split('(')[1].split(')')[0]
+                            # in the future we can extract the coordinates from here
+                    print '[Coordinates not found]'
+                    continue
+                except IndexError:
+                    print '[Coordinates not found]'
+                    continue
                 print
                 continue
         
