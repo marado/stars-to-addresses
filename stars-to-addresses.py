@@ -70,9 +70,12 @@ for element, attribute, url, pos in doc.body.iterlinks():
                     lines = content.split('\n')  # --> ['Line 1', 'Line 2', 'Line 3']
                     for line in lines:
                         if re.search('cacheResponse\(', line):
-                            splitline = line.split('(')[1].split(')')[0]
+                            splitline = line.split('(')[1].split(')')[0] + '"]'
                             # in the future we can extract the coordinates from here
-                    print '[Coordinates not found]'
+                            null = None
+                            values = eval(splitline)
+                            print values[8][0][1]
+                            continue
                     continue
                 except IndexError:
                     print '[Coordinates not found]'
