@@ -21,10 +21,10 @@ But... how to run the script?
 
 There are several ways to do this, I'm not suggesting the only way, the correct
 way, and maybe not even the simplest way. Any doubts you have on this, please
-(open an issue)[https://github.com/marado/stars-to-addresses/issues].
+[open an issue](https://github.com/marado/stars-to-addresses/issues).
 
-1) Clone this repository. You can find out how to do it on (github's
-   documentation)[https://help.github.com/articles/cloning-a-repository/];
+1) Clone this repository. You can find out how to do it on [github's
+   documentation](https://help.github.com/articles/cloning-a-repository/);
 
 2) Open the cloned directory, and place the GoogleBookmarks.html files there;
 
