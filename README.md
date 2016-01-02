@@ -29,4 +29,5 @@ way, and maybe not even the simplest way. Any doubts you have on this, please
 
 2) Open the cloned directory, and place the GoogleBookmarks.html files there;
 
-3) Execute the `stars-to-addresses.py` script.
+3) Execute the `stars-to-addresses.py` script (if you're using a console, 
+   just type `python stars-to-addresses.py`.
