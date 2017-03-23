@@ -23,13 +23,35 @@ except ImportError:
 	print "You need to install geopy"
 	sys.exit()
 
-# TODO: embrace these imports in try/except clauses
-import simplekml
-import json
+try:
+	import simplekml
+except ImportError:
+	print "You need to install simplekml"
+	sys.exit()
 
-from urllib2 import urlopen
-import re
-import time
+try:
+	import json
+except ImportError:
+	print "You need to install json"
+	sys.exit()
+
+try:
+	from urllib2 import urlopen
+except ImportError:
+	print "You need to install urllib2"
+	sys.exit()
+
+try:
+	import re
+except ImportError:
+	print "You need to install re"
+	sys.exit()
+
+try:
+	import time
+except ImportError:
+	print "You need to install time"
+	sys.exit()
 
 filename = r'GoogleBookmarks.html'
 
