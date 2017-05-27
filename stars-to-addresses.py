@@ -14,7 +14,7 @@ import sys
 try:
 	from lxml.html import document_fromstring
 except ImportError:
-	print "You need to install lxml"
+	print "You need to install lxml.html"
 	sys.exit()
 
 try:
