@@ -83,6 +83,7 @@ def main():
             else:
                 # Load map and find coordinates in source of page
                 try:
+                    url = url.encode('ascii', 'xmlcharrefreplace')
                     sock = urlopen(url.replace(' ','+').encode('UTF8'))
                 except Exception, e:
                     print 'Connection problem:'
