@@ -105,13 +105,20 @@ def main():
                         for line in lines:
                             if re.search('cacheResponse\(', line):
                                 splitline = line.split('(')[1].split(')')[0] + '"]'
-                                # in the future we can extract the coordinates from here
                                 null = None
                                 values = eval(splitline)
                                 print values[8][0][1]
                                 longitude = str(values[0][0][1])
                                 latitude = str(values[0][0][2])
                                 continue
+                        if latitude == "":
+                            # let's try something different....
+                            for line in lines:
+                                if re.search('APP_INITIALIZATION_STATE', line):
+                                    splitline = line.split('[')[-1].split(']')[0].split(',')
+                                    longitude = str(splitline[1])
+                                    latitude = str(splitline[2])
+                                    continue
                     except IndexError:
                         print '[Coordinates not found]'
                         continue
