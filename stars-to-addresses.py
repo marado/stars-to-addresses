@@ -88,12 +88,12 @@ def main():
                 except Exception, e:
                     print 'Connection problem:'
                     print repr(e)
-                    print 'Waiting 2 minutes and trying again'
-                    time.sleep(120)
+                    print 'Waiting 3 minutes and trying again'
+                    time.sleep(180)
                     sock = urlopen(url.replace(' ','+').encode('UTF8'))
                 content = sock.read()
                 sock.close()
-                time.sleep(3) # Don't annoy server
+                time.sleep(5) # Don't annoy server
                 try:
                     latitude = lat_re.findall(content)[0]
                     longitude = lon_re.findall(content)[0]
