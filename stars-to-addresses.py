@@ -98,6 +98,8 @@ def main():
                     latitude = lat_re.findall(content)[0]
                     longitude = lon_re.findall(content)[0]
                 except IndexError:
+                    latitude = ""
+                    longitude = ""
                     try:
                         lines = content.split('\n')  # --> ['Line 1', 'Line 2', 'Line 3']
                         for line in lines:
@@ -117,12 +119,18 @@ def main():
             
             print latitude, longitude
             try:
-    			location = geolocator.reverse(latitude+", "+longitude)
-    			print(location.address)
+                if latitude != "":
+                    location = geolocator.reverse(latitude+", "+longitude)
+                    print(location.address)
+                else:
+                    print '[Invalid coordinates]'
             except ValueError:
                 print '[Invalid coordinates]'
             print
-            kml.newpoint(name=description, coords=[(float(longitude), float(latitude))])
+            if latitude != "":
+                kml.newpoint(name=description, coords=[(float(longitude), float(latitude))])
+            else:
+                kml.newpoint(name=description)
             lst.append({'latitude': latitude,
                        'longitude': longitude,
                        'name': description,
